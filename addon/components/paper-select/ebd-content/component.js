@@ -66,6 +66,9 @@ class PaperSelectEbdContent extends Component {
     let parentElement = this.renderInPlace ? dropdownElement.parentElement.parentElement : dropdownElement.parentElement;
     let clone = dropdownElement.cloneNode(true);
     clone.id = `${clone.id}--clone`;
+    if (!parentElement) {
+      return;
+    }
     parentElement.appendChild(clone);
 
     clone.children[0].children[0].scrollTop = dropdownElement.children[0].children[0].scrollTop;
