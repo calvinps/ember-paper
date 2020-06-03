@@ -58,6 +58,9 @@ class PaperMenuContent extends Component {
     let parentElement = this.renderInPlace ? element.parentElement.parentElement : element.parentElement;
     let clone = element.cloneNode(true);
     clone.id = `${clone.id}--clone`;
+    if (!parentElement) {
+      return;
+    }
     parentElement.appendChild(clone);
 
     await nextTick();
